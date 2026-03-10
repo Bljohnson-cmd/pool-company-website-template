@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-pool-navy: #0c2340;
+  --color-pool-blue: #1e6cb1;
+  --color-pool-sky: #4fa8e0;
+  --color-pool-light: #e8f4fd;
+  --color-pool-gold: #c9972b;
+  --color-pool-gold-light: #f5e6c4;
+  --color-pool-slate: #374151;
+  --color-pool-warm: #faf8f5;
+  --color-pool-dark: #091a2e;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth gradient overlay for hero */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(12, 35, 64, 0.85) 0%,
+    rgba(30, 108, 177, 0.6) 50%,
+    rgba(12, 35, 64, 0.75) 100%
+  );
+}
+
+/* Water shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.water-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(79, 168, 224, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+/* Gold accent line */
+.gold-accent {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #c9972b, #e0b84a);
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll fade in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Pool water texture background */
+.pool-texture {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(79, 168, 224, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(30, 108, 177, 0.06) 0%, transparent 50%);
 }
