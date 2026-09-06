@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Claude auto memory for this scope (local only, never exported)
+context/.memory-local/
+**/context/.memory-local/
+.claude/settings.local.json
